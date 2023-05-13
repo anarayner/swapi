@@ -1,0 +1,39 @@
+.card-container {
+  width: 100%;
+  height: 100%;
+}
+
+.favorites {
+  display: block;
+}
+
+.bt{
+  width: 100%;
+}
+
+.bt2{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.title{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  height: var(--image-container-h);
+  width: 100%;
+}
+
+.image-container-logged {
+  height: var(--image-container-logged-h) !important;
+  width: 100% !important;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

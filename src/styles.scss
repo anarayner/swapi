@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+@import './custom-palettes';
+
+@include mat.core();
+
+
+$my-primary: mat.define-palette(mat.$amber-palette, 500);
+$my-accent: mat.define-palette(mat.$grey-palette, A200, A100, A400);
+
+$my-theme: mat.define-dark-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+  ),
+  density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
+
+
+//html, body { height: 100vh; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

@@ -1,0 +1,27 @@
+<style>
+  :host, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto 0;
+    padding: 20px 30px;
+    background: var(--bg-dark);
+    color: white;
+    height: calc(100% - 100px);
+    min-height: calc(100vh - 100px);
+  }
+</style>
+
+<app-nav-bar></app-nav-bar>
+
+<div class="content" role="main">
+  <router-outlet></router-outlet>
+</div>
+

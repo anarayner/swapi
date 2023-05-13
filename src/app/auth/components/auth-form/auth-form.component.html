@@ -1,0 +1,42 @@
+<div>
+  <mat-card class="card">
+    <div class="title">
+      <h3>{{currentRoute === 'login'? 'Log in' : 'Create an account'}}</h3>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label class="label">Username</mat-label>
+        <input matInput placeholder="Username" [formControl]="usernameFormControl"
+               [errorStateMatcher]="matcher" appFocus >
+        <mat-error *ngIf="usernameFormControl.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+        <mat-hint *ngIf="currentRoute === 'registration'" align="end">{{ usernameFormControl.value?.length || 0 }}/4</mat-hint>
+        <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+          Username must be at least 4 characters long.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label class="label">Password</mat-label>
+        <input matInput type="password" placeholder="Password"
+               [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-hint *ngIf="currentRoute === 'registration'" align="end">{{ passwordFormControl.value?.length || 0 }}/4</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+          Password must be at least 6 characters long.
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit"
+              class="submit-button">Submit</button>
+      <button mat-stroked-button color="primary" type="button" [routerLink]="currentRoute === 'registration'? ['/login'] : ['/registration']"
+              class="submit-button">{{currentRoute === 'registration'? 'Log in' : 'Sign in'}}</button>
+    </form>
+  </mat-card>
+</div>
+

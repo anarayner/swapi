@@ -1,0 +1,41 @@
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font-weight: 600;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+
+.active-link {
+  background-color: var(--primary-color);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: right;
+  width: 60px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
