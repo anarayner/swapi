@@ -22,3 +22,15 @@ export interface FilmsState {
   films: Film[];
   selectedFilm?: Film;
 }
+
+const filmInfo = [
+  { title: 'Director', property: 'director' },
+  { title: 'Producer', property: 'producer' },
+  { title: 'Release date', property: 'release_date' }
+];
+
+const filmInfoButtons = [
+  { title: 'Planets', property: 'planets' },
+  { title: 'Vehicles', property: 'vehicles' },
+  { title: 'Characters', property: 'characters' }
+];

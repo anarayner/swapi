@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core';
 import {Observable, BehaviorSubject, tap, combineLatest, map, startWith, take} from "rxjs";
-import {LoggedInUser} from "./auth.model";
+import {LoggedInUser} from "../features/auth/auth.model";
 import {environment} from "../../environment";
 import { JwtHelperService } from '@auth0/angular-jwt';
 

@@ -16,3 +16,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.paginator-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginator {
+  max-width: 1250px;
+}
+

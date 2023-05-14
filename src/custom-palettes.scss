@@ -6,10 +6,11 @@
   --light-color: #f8f9fa;
   --dark-color: #000;
 
-  --card-h: 400px;
+  --card-h: 375px;
   --card-w: 350px;
 
-  --image-container-h: calc(400px - 78px);
-  --image-container-logged-h: calc(400px - 134px)
+  --image-container-h: calc(var(--card-h) - 88px);
+  --image-container-logged-h: calc(var(--card-h) - 134px);
+  --image-container-datails: 450px;
 }
 

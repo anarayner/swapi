@@ -13,7 +13,7 @@ export const initialFilmsState: FilmsState = {
 export const filmsReducer = createReducer(
   initialFilmsState,
   on(loadFilms, (state) => ({...state, loading: true, loaded: false})),
-  on(loadFilmsSuccess, (state, {films}) => ({...state, loading: false, loaded: true})),
+  on(loadFilmsSuccess, (state, {films}) => ({...state, loading: false, loaded: true, films})),
   on(loadFilmsFail, (state, {error}) => ({...state, loading: false, error})),
   on(selectFilm, (state, {film}) => ({...state, selectedFilm: film}))
 )

@@ -9,10 +9,22 @@ import {environment} from "../../../environment";
 })
 export class FilmsService {
   private apiUrl = `${environment.swapiUrl}/films`
+  private cache = new Map<string, any>();
+
   constructor(private http: HttpClient) {
   }
 
+  // getFilms(): Observable<Film[]> {
+  //   return this.http.get<Film[]>(this.apiUrl);
+  // }
+
   getFilms(): Observable<Film[]> {
-    return this.http.get<Film[]>(this.apiUrl);
+    if (this.cache.has(this.apiUrl)) {
+      return this.cache.get(this.apiUrl);
+    } else {
+      const films$ = this.http.get<Film[]>(this.apiUrl);
+      this.cache.set(this.apiUrl, films$);
+      return films$;
+    }
   }
 }

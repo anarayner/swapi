@@ -1,0 +1,8 @@
+<div class="cards">
+  <div *ngFor="let data of cards, let i = index">
+    <ng-container *ngTemplateOutlet="cardTemplate; context: {$implicit: data, index: i} " class="card"></ng-container>
+  </div>
+</div>
+<ng-template #cardTemplate let-data let-index="index">
+  <app-card [data]="data" [index]="index"></app-card>
+</ng-template>

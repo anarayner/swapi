@@ -1,0 +1,37 @@
+@import "../../../../custom-palettes";
+.card{
+  width: 400px;
+  color: var(--light-color);
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border);
+  padding: 50px;
+}
+
+.form{
+  display: contents;
+}
+
+.submit-button{
+  margin-top: 25px;
+}
+
+.form-field{
+  margin-top: 15px;
+}
+
+.label{
+  font-size: 14px;
+}
+.label:after{
+  font-size: 14px;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+}
+
+input::placeholder {
+  font-size: 12px;
+}
+

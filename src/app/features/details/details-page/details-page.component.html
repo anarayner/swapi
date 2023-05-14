@@ -1,4 +1,73 @@
-<p>details-page works!</p>
+<mat-spinner *ngIf="detailsLoading$ | async" class="page-spinner"></mat-spinner>
+<button mat-stroked-button color="primary"  (click)="goBack()">Back</button>
 
-<button mat-stroked-button color="primary" (click)="goBack()">Back</button>
+<div class="detail-page" *ngIf="detailsLoaded$ | async">
+   <div class="image-container">
+     <img mat-card-image src="assets/star-wars.jpg" alt="img" class="img">
+   </div>
+
+   <ng-container [ngSwitch]="category" class="detail-container">
+
+     <!--  Film information  -->
+     <div *ngSwitchCase="'films'" class="detail-container">
+       <h1>{{(details$ | async)?.title}} | Film</h1>
+       <p>{{(details$ | async)?.opening_crawl}}</p>
+
+       <div class="info-list">
+         <ng-container *ngFor="let item of filmInfo">
+           <app-info [title]="item.title" [info]="(details$ | async)?.[item.property]"></app-info>
+         </ng-container>
+       </div>
+       <ng-container *ngFor="let item of filmInfoButtons">
+         <app-icon-button [title]="item.title" [icon]="item.icon" [items]="(details$ | async)?.[item.property]"></app-icon-button>
+       </ng-container>
+     </div>
+
+
+     <!--  People information  -->
+     <div *ngSwitchCase="'people'" class="detail-container">
+       <h1>{{(details$ | async)?.name}} | Character</h1>
+
+       <div class="info-list">
+         <ng-container *ngFor="let item of peopleInfo">
+           <app-info [title]="item.title" [info]="(details$ | async)?.[item.property]"></app-info>
+         </ng-container>
+       </div>
+       <ng-container *ngFor="let item of peopleInfoButtons">
+         <app-icon-button [title]="item.title" [icon]="item.icon" [items]="(details$ | async)?.[item.property]"></app-icon-button>
+       </ng-container>
+     </div>
+
+     <!--  Planet information  -->
+     <div *ngSwitchCase="'planets'" class="detail-container">
+       <h1>{{(details$ | async)?.name}} | Planet</h1>
+
+       <div class="info-list">
+         <ng-container *ngFor="let item of planetInfo">
+           <app-info [title]="item.title" [info]="(details$ | async)?.[item.property]"></app-info>
+         </ng-container>
+       </div>
+       <ng-container *ngFor="let item of planetInfoButtons">
+         <app-icon-button [title]="item.title" [icon]="item.icon" [items]="(details$ | async)?.[item.property]"></app-icon-button>
+       </ng-container>
+     </div>
+
+     <!--  Vehicles information  -->
+     <div *ngSwitchCase="'vehicles'" class="detail-container">
+       <h1>{{(details$ | async)?.name}} | Vehicle</h1>
+       <div class="info-list">
+         <ng-container *ngFor="let item of vehicleInfo">
+           <app-info [title]="item.title" [info]="(details$ | async)?.[item.property]"></app-info>
+         </ng-container>
+       </div>
+       <ng-container *ngFor="let item of vehicleInfoButtons">
+         <app-icon-button [title]="item.title" [icon]="item.icon" [items]="(details$ | async)?.[item.property]"></app-icon-button>
+       </ng-container>
+     </div>
+   </ng-container>
+ </div>
+
+
+
+
 

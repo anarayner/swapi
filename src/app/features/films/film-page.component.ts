@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {SwapiService} from "../../services/swapi.service";
-import {Film} from "./store/films.interface";
-import {Observable} from "rxjs";
-import {selectFilms, selectFilmsLoaded, selectFilmsLoading, selectSelectedFilm} from "./store/ films.selectors";
+import {
+  selectFilms,
+  selectFilmsLoaded,
+  selectFilmsLoading,
+  selectSelectedFilm
+} from "./store/films.selectors";
 import {Store} from "@ngrx/store";
 import {loadFilms} from "./store/films.actions";
 
@@ -10,37 +12,24 @@ import {loadFilms} from "./store/films.actions";
   selector: 'app-film-page',
   template: `
     <div class="page-container">
-      <mat-spinner *ngIf="isLoading" class="page-spinner"></mat-spinner>
-      <app-card-list-template *ngIf="!isLoading" [cards]="films"></app-card-list-template>
+      <mat-spinner *ngIf="filmsLoading$ | async" class="page-spinner"></mat-spinner>
+      <app-card-list *ngIf="filmsLoaded$ | async" [cards]="films$ | async"></app-card-list>
     </div>
   `,
   styleUrls: ['../page.scss']
 })
 export class FilmPageComponent implements OnInit{
 
-  films: Film[] = []
-  isLoading: boolean = true;
-
-  constructor(private store: Store, private swapiService: SwapiService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-     this.getAllFilms()
-     //this.store.dispatch(loadFilms());
-     console.log('NGRX', this.films$)
-  }
-
-  getAllFilms() {
-    this.swapiService.getAll('films').subscribe((result) => {
-      this.films = result;
-      this.isLoading = false
-    });
+     this.store.dispatch(loadFilms());
   }
 
 
-
-  films$: Observable<Film[]> = this.store.select(selectFilms);
-  //selectedFilm$: Observable<Film> = this.store.select(selectSelectedFilm);
-  loading$: Observable<boolean> = this.store.select(selectFilmsLoading);
-  loaded$: Observable<boolean> = this.store.select(selectFilmsLoaded);
+  films$ = this.store.select(selectFilms);
+  filmsLoading$ = this.store.select(selectFilmsLoading);
+  filmsLoaded$ = this.store.select(selectFilmsLoaded);
+  selectedFilm$ = this.store.select(selectSelectedFilm);
 
 }
