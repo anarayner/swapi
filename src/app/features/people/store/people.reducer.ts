@@ -1,5 +1,10 @@
 import {createReducer, on} from "@ngrx/store";
-import {loadPeople, loadPeopleFail, loadPeopleSuccess, selectPeople} from "./people.actions";
+import {
+  loadPeople,
+  loadPeopleFail,
+  loadPeopleSuccess,
+  searchPeople,
+} from "./people.actions";
 import {PeopleState} from "./people.interface";
 
 export const initialPeopleState: PeopleState = {
@@ -7,6 +12,7 @@ export const initialPeopleState: PeopleState = {
   loaded: false,
   people: [],
   error: undefined,
+  searchQuery: undefined
 }
 
 export const peopleReducer = createReducer(
@@ -14,4 +20,5 @@ export const peopleReducer = createReducer(
   on(loadPeople, (state) => ({...state, loading: true, loaded: false})),
   on(loadPeopleSuccess, (state, {people}) => ({...state, loading: false, loaded: true, people})),
   on(loadPeopleFail, (state, {error}) => ({...state, loading: false, error})),
+  on(searchPeople, (state, { query }) => ({ ...state, searchQuery: query })),
 )

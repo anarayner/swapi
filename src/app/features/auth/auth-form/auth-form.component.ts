@@ -54,7 +54,7 @@ export class AuthFormComponent{
         this.router.navigate([`/films`]);
       },
       error: (error) => {
-        console.log("ERROR", error.error.message)
+        console.log("ERROR", error)
         this.snackBar.open(error.error.message, 'Close', { duration: 5000 });
       }
     })
@@ -68,7 +68,7 @@ export class AuthFormComponent{
       },
       error: (error) => {
         this.form.reset()
-        console.log("ERROR", error.error.message)
+        console.log("ERROR", error)
         this.snackBar.open(error.error.message, 'Close', { duration: 5000 });
       }
     })

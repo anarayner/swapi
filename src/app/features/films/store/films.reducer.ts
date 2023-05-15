@@ -5,7 +5,7 @@ import {loadFilms, loadFilmsFail, loadFilmsSuccess, selectFilm} from "./films.ac
 export const initialFilmsState: FilmsState = {
   loading: false,
   loaded: false,
-  error: undefined,
+  error: '',
   films: [],
   selectedFilm: undefined
 }

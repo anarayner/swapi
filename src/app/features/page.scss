@@ -19,11 +19,19 @@
 
 .paginator-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .paginator {
   max-width: 1250px;
 }
+
+@media (max-width: 415px) {
+  .paginator-container{
+    display: block;
+    align-items: center;
+  }
+}
+
 

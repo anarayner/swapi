@@ -15,6 +15,9 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
 import { InfoComponent } from './components/info/info.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {AuthorizationModule} from "../auth/authorization.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import {AuthorizationModule} from "../auth/authorization.module";
     FocusDirective,
     ItalicPipe,
     IconButtonComponent,
-    InfoComponent
+    InfoComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,10 @@ import {AuthorizationModule} from "../auth/authorization.module";
     RouterLinkActive,
     MatCardModule,
     MatDialogModule,
-    AuthorizationModule
+    AuthorizationModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NavBarComponent,
@@ -45,7 +51,8 @@ import {AuthorizationModule} from "../auth/authorization.module";
     ItalicPipe,
     HoverScaleDirective,
     IconButtonComponent,
-    InfoComponent
+    InfoComponent,
+    FocusDirective
   ], providers: [
     MatDialog,
   ]

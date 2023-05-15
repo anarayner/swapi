@@ -12,7 +12,9 @@ import {RouterLink} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {AuthModule} from "./auth/auth.module";
-import { SearchComponent } from './search/search.component';
+// import { SearchComponent } from './search/search.component';
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { SearchComponent } from './search/search.component';
     ProfilePageComponent,
     FilmPageComponent,
     DetailsPageComponent,
-    SearchComponent,
+    // SearchComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,11 @@ import { SearchComponent } from './search/search.component';
     RouterLink,
     MatCardModule,
     MatIconModule,
-    AuthModule
+    AuthModule,
+    MatInputModule,
+
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
   ]

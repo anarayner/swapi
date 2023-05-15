@@ -22,4 +22,5 @@ export interface PeopleState {
   loaded: boolean;
   people: People[];
   error?: string;
+  searchQuery?: string;
 }
