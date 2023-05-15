@@ -13,7 +13,6 @@ The project is a web application that interacts with the SWAPI API (Star Wars AP
 - Personal user profile.
 - Reusable Components: card, card list, details page
 - Custom Directives
-
 ## Deployment
 
 The application is deployed and can be accessed at [https://fancy-starlight-fdcd2b.netlify.app/](https://fancy-starlight-fdcd2b.netlify.app/).
