@@ -41,7 +41,7 @@ export class AuthFormComponent{
       if(event instanceof NavigationEnd){
         if(event.urlAfterRedirects){
           this.currentRoute = event.url.slice(1)
-          console.log(this.currentRoute)
+          // console.log(this.currentRoute)
         }
       }
     })
@@ -50,11 +50,11 @@ export class AuthFormComponent{
   logInUser(user: UserCredentials){
     this.authService.logIn(user.username, user.password).subscribe({
       next: (data)=>{
-        console.log(data)
+        // console.log(data)
         this.router.navigate([`/films`]);
       },
       error: (error) => {
-        console.log("ERROR", error)
+        // console.log("ERROR", error)
         this.snackBar.open(error.error.message, 'Close', { duration: 5000 });
       }
     })
@@ -68,7 +68,7 @@ export class AuthFormComponent{
       },
       error: (error) => {
         this.form.reset()
-        console.log("ERROR", error)
+        // console.log("ERROR", error)
         this.snackBar.open(error.error.message, 'Close', { duration: 5000 });
       }
     })

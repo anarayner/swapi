@@ -17,10 +17,10 @@ export class DetailsPageEffects {
       ofType(loadDetails),
       exhaustMap(({category, id}) =>
         this.detailsService.getDetails(category, id).pipe(
-          tap((response) => console.log('Server response details:', response)),
+          // tap((response) => console.log('Server response details:', response)),
           map((data) => loadDetailsSuccess({ data })),
           catchError((error) => of(loadPeopleFail({ error: error.message }))),
-          finalize(() => console.log('loadFilms effect completed details'))
+          // finalize(() => console.log('loadFilms effect completed details'))
         )
       )
     )

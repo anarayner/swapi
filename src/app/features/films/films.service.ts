@@ -14,10 +14,6 @@ export class FilmsService {
   constructor(private http: HttpClient) {
   }
 
-  // getFilms(): Observable<Film[]> {
-  //   return this.http.get<Film[]>(this.apiUrl);
-  // }
-
   getFilms(): Observable<Film[]> {
     if (this.cache.has(this.apiUrl)) {
       return this.cache.get(this.apiUrl);

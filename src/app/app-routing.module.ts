@@ -12,13 +12,8 @@ const routes: Routes = [
   {path:'films',component: FilmPageComponent},
   {path: 'login',component: LoginPageComponent},
   {path: 'registration',component: SinginPageComponent},
-
-  //{path: 'people', redirectTo: 'people/1', pathMatch: 'full' },
   {path: 'people', component: PeoplePageComponent },
-
   {path:'user/:id',component: ProfilePageComponent},
-  //{path:'details',component: DetailsPageComponent},
-  //{path:'info/films/:id',component: DetailsPageComponent},
   {path:'info/:category/:id',component: DetailsPageComponent},
   {path:'**',component: FilmPageComponent},
 ];

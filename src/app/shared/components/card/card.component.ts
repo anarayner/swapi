@@ -42,7 +42,7 @@ export class CardComponent {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 }

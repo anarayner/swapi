@@ -16,7 +16,6 @@ import {detailsReducer} from "./features/details/store/details.reducer";
 import {DetailsPageEffects} from "./features/details/store/details.effects";
 import {AuthorizationModule} from "./auth/authorization.module";
 
-
 @NgModule({
   declarations: [
     AppComponent,

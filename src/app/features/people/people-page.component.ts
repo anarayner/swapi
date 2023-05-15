@@ -51,12 +51,11 @@ export class PeoplePageComponent implements OnInit{
     this.peopleLoading$ = this.store.select(selectPeopleLoading);
     this.peopleLoaded$ = this.store.select(selectPeopleLoaded);
     this.currentPage = this.route.snapshot.params['page']
-    console.log('currentPage', this.currentPage)
   }
 
   ngOnInit(): void {
     this.store.dispatch(loadPeople({page: this.currentPage}))
-    this.peoples$.subscribe(p => console.log('PEOPLE', p))
+    // this.peoples$.subscribe(p => console.log('PEOPLE', p))
   }
 
   onPageChange(event: PageEvent){

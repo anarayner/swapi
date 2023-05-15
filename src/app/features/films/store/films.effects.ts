@@ -14,10 +14,10 @@ export class FilmsEffects {
       exhaustMap(() =>
         this.filmsService.getFilms().pipe(
           map((res: any) => res.results),
-          tap((response) => console.log('Server response films:', response)),
+          // tap((response) => console.log('Server response films:', response)),
           map((films: Film[]) => loadFilmsSuccess({ films })),
           catchError((error) => of(loadFilmsFail({ error: error.message }))),
-          finalize(() => console.log('loadFilms effect completed films'))
+          // finalize(() => console.log('loadFilms effect completed films'))
         )
       )
     )

@@ -26,10 +26,8 @@ export class FilmPageComponent implements OnInit{
      this.store.dispatch(loadFilms());
   }
 
-
   films$ = this.store.select(selectFilms);
   filmsLoading$ = this.store.select(selectFilmsLoading);
   filmsLoaded$ = this.store.select(selectFilmsLoaded);
-  selectedFilm$ = this.store.select(selectSelectedFilm);
 
 }

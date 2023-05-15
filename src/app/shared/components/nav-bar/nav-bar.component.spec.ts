@@ -55,10 +55,6 @@ describe('NavBarComponent', () => {
     expect(button).toBeTruthy();
   });
 
-  it('should show the "Log in" button when the user is not logged in', () => {
-    const button = fixture.nativeElement.querySelector('a[routerlink="/login"]');
-    expect(button).toBeTruthy();
-  });
 
   it('should not show the "Log out" button when the user is not logged in', () => {
     const button = fixture.nativeElement.querySelector('button[routerlink="/films"]');

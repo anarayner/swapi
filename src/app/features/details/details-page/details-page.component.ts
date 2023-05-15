@@ -47,7 +47,6 @@ export class DetailsPageComponent implements OnInit{
       this.category = params.get('category');
       const category = this.category
       const id: any = params.get('id');
-      console.log('category id ONINIT', this.category, id)
       this.store.dispatch(loadDetails({ category, id }));
     });
   }

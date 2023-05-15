@@ -25,7 +25,6 @@ export class ProfilePageComponent implements OnInit{
       this.profileService.getUserProfile(this.userId).subscribe((result) => {
         this.userData = result;
         this.isLoading = false
-        console.log('userData', this.userData)
       });
     }
   }

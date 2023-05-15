@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'http://localhost:5000/api',
+  apiUrl: 'https://jwt-auth-ten.vercel.app/api',
   swapiUrl: 'https://swapi.dev/api'
 };

@@ -35,9 +35,6 @@ export class AuthService {
         localStorage.setItem('token', JSON.stringify(user.token))
         localStorage.setItem('id', JSON.stringify(user.id))
         this.userSubject.next(user)
-        // console.log("USER$", this.user$)
-        // console.log("isLoggedInFromStorage$", this.isLoggedInFromStorage$)
-        // console.log("isLoggedIn$", this.isLoggedIn$)
       })
     )
   }

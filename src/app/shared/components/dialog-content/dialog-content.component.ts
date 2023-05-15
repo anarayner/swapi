@@ -17,6 +17,6 @@ export class DialogContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("DIALOG DATA", this.data)
+    // console.log("DIALOG DATA", this.data)
   }
 }
