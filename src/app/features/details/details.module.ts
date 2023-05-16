@@ -5,7 +5,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {SharedModule} from "../../shared/shared.module";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatButtonModule,
     SharedModule,
     MatProgressSpinnerModule,
+    RouterModule.forChild([{ path: '', component: DetailsPageComponent }])
   ]
 })
 export class DetailsModule { }

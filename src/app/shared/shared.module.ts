@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NavBarComponent} from "./components/nav-bar/nav-bar.component";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {MatIconModule} from '@angular/material/icon';
@@ -21,7 +20,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    NavBarComponent,
+    // NavBarComponent,
     CardListComponent,
     CardComponent,
     DialogContentComponent,
@@ -45,7 +44,6 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
   ],
   exports: [
-    NavBarComponent,
     CardListComponent,
     CardComponent,
     ItalicPipe,

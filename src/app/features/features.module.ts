@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PeoplePageComponent } from './people/people-page.component';
-import { ProfilePageComponent } from './user-profile/profile-page/profile-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FilmPageComponent} from "./films/film-page.component";
 import {SharedModule} from "../shared/shared.module";
@@ -16,8 +14,6 @@ import {DetailsModule} from "./details/details.module";
 
 @NgModule({
   declarations: [
-    PeoplePageComponent,
-    ProfilePageComponent,
     FilmPageComponent,
   ],
   imports: [
@@ -29,9 +25,9 @@ import {DetailsModule} from "./details/details.module";
     MatIconModule,
     AuthModule,
     MatInputModule,
-    DetailsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // DetailsModule,
+    // FormsModule,
+    // ReactiveFormsModule,
   ],
   exports: [
   ]

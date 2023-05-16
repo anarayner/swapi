@@ -15,14 +15,14 @@ export class PeopleService {
   }
 
   getPeoples(page: number = 1): Observable<People[]> {
-    return this.http.get<People[]>(`${this.apiUrl}/?page=${page}`);
+    return this.http.get<People[]>(`${this.apiUrl}/?page=${page}&limit=10`);
   }
 
   search(query?: string, page: number = 1): Observable<People[]> {
-    if(query) {
-      return this.http.get<People[]>(`${this.apiUrl}/?search=${query}&page=${page}`)
+    if(query && query !== '') {
+      return this.http.get<any>(`${this.apiUrl}/?name=${query}`)
     } else {
-      return this.http.get<People[]>(`${this.apiUrl}/?page=${page}`);
+      return this.http.get<People[]>(`${this.apiUrl}/?page=${page}&limit=10`);
     }
   }
 }

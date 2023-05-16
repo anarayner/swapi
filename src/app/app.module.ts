@@ -15,6 +15,8 @@ import {PeopleEffects} from "./features/people/store/people.effects";
 import {detailsReducer} from "./features/details/store/details.reducer";
 import {DetailsPageEffects} from "./features/details/store/details.effects";
 import {AuthorizationModule} from "./auth/authorization.module";
+import {NavBarModule} from "./shared/components/nav-bar/nav-bar.module";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -24,8 +26,9 @@ import {AuthorizationModule} from "./auth/authorization.module";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
+    NavBarModule,
     FeaturesModule,
+    MatSnackBarModule,
     CommonModule,
     AuthorizationModule,
     EffectsModule.forRoot([FilmsEffects, PeopleEffects, DetailsPageEffects]),

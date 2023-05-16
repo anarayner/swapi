@@ -13,7 +13,7 @@ export class FilmsEffects {
       ofType(loadFilms),
       exhaustMap(() =>
         this.filmsService.getFilms().pipe(
-          map((res: any) => res.results),
+          map((res: any) => res.result),
           // tap((response) => console.log('Server response films:', response)),
           map((films: Film[]) => loadFilmsSuccess({ films })),
           catchError((error) => of(loadFilmsFail({ error: error.message }))),

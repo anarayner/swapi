@@ -4,16 +4,15 @@ import {selectPeople, selectPeopleLoaded, selectPeopleLoading} from "./store/peo
 import {loadPeople, searchPeople} from "./store/people.actions";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
-import {Observable} from "rxjs";
+import {debounceTime, Observable, Subject} from "rxjs";
+import { debounce } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-people-page',
   template: `
     <div class="page-container">
       <mat-spinner *ngIf="peopleLoading$ | async" class="page-spinner"></mat-spinner>
-
-
-
       <div class="paginator-container">
         <mat-form-field appearance="fill">
           <mat-label>Search by name</mat-label>
@@ -36,8 +35,9 @@ import {Observable} from "rxjs";
 })
 
 
-
 export class PeoplePageComponent implements OnInit{
+
+  private pageChangeSubject = new Subject<PageEvent>();
 
   peoples$
   peopleLoading$: Observable<boolean>
@@ -56,14 +56,21 @@ export class PeoplePageComponent implements OnInit{
   ngOnInit(): void {
     this.store.dispatch(loadPeople({page: this.currentPage}))
     // this.peoples$.subscribe(p => console.log('PEOPLE', p))
+    this.pageChangeSubject.pipe(
+      debounceTime(500)
+    ).subscribe(event => {
+      this.currentPage = event.pageIndex + 1;
+      // console.log("PageEvent", this.currentPage);
+      this.store.dispatch(loadPeople({page: this.currentPage}));
+    });
   }
 
-  onPageChange(event: PageEvent){
-    this.currentPage = event.pageIndex + 1
-    this.store.dispatch(loadPeople({page: this.currentPage}))
+  onPageChange(event: PageEvent) {
+    this.pageChangeSubject.next(event);
   }
 
   searchPeople(event: any) {
+    console.log("event", event.target.value)
     this.store.dispatch(searchPeople({ query: event.target.value, page: this.currentPage }));
   }
 }

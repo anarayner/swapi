@@ -17,6 +17,7 @@ export class DetailsPageEffects {
       ofType(loadDetails),
       exhaustMap(({category, id}) =>
         this.detailsService.getDetails(category, id).pipe(
+          map((res: any) => res.result['properties']),
           // tap((response) => console.log('Server response details:', response)),
           map((data) => loadDetailsSuccess({ data })),
           catchError((error) => of(loadPeopleFail({ error: error.message }))),

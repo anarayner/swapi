@@ -29,9 +29,16 @@ export class CardComponent {
   }
 
   getInfo(){
-    const path = this.data.url.split('/api/')[1].split('/')
+    let path
+    if(this.data.properties){
+      path = this.data.properties.url.split('/api/')[1].split('/')
+    } else {
+      path = this.data.url.split('/api/')[1].split('/')
+    }
+    console.log(path)
     const category = path[0], id = path[1]
     this.router.navigate(['/info', category, id]);
+
   }
 
   onDetailsClick(){
