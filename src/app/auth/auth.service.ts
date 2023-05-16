@@ -61,4 +61,9 @@ export class AuthService {
     )
   }
 
+
+  public addFavorite(id: string, title: string, apiLink: string){
+    return this.http.post<any>(`${this.apiUrl}/favorites`, {id, title, apiLink})
+  }
+
 }

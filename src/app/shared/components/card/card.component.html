@@ -9,6 +9,6 @@
   <mat-card-actions class="favorites">
     <button mat-stroked-button color="primary" class="bt" (click)="onDetailsClick()">Details</button>
     <button mat-stroked-button color="primary" class="bt2" [routerLink]="['/info', category, id]">Full Information</button>
-    <button *ngIf="(isLoggedIn$ | async)" mat-raised-button color="primary" class="bt2">Add to Favorites</button>
+    <button *ngIf="(isLoggedIn$ | async)" mat-raised-button color="primary" class="bt2" (click)="addToFavorite()">Add to Favorites</button>
   </mat-card-actions>
 </mat-card>
