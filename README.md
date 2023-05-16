@@ -15,7 +15,7 @@ The project is a web application that interacts with the SWAPI API (Star Wars AP
 - Custom Directives
 ## Deployment
 
-The application is deployed and can be accessed at [https://starlight-swapi.netlify.app/](https://fancy-starlight-fdcd2b.netlify.app/).
+The application is deployed and can be accessed at [https://starlight-swapi.netlify.app/](https://starlight-swapi.netlify.app/).
 
 ## Backend Repository
 
