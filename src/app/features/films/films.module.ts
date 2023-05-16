@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FilmPageComponent} from "./film-page.component";
-import {SharedModule} from "../../shared/shared.module";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {RouterModule} from "@angular/router";
+import {SharedModule} from "../../shared/shared.module";
 
 
 
@@ -13,9 +13,9 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     CommonModule,
-    SharedModule,
     MatProgressSpinnerModule,
-    RouterModule.forChild([{ path: '', component: FilmPageComponent }])
+    RouterModule.forChild([{path: '', component: FilmPageComponent}]),
+    SharedModule
   ]
 })
 export class FilmsModule { }

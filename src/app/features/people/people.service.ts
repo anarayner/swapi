@@ -19,10 +19,10 @@ export class PeopleService {
   }
 
   search(query?: string, page: number = 1): Observable<People[]> {
-    if(query && query !== '') {
-      return this.http.get<any>(`${this.apiUrl}/?name=${query}`)
+    if(query) {
+      return this.http.get<any>(`${this.apiUrl}/?search=${query}&page=${page}`)
     } else {
-      return this.http.get<People[]>(`${this.apiUrl}/?page=${page}&limit=10`);
+      return this.http.get<People[]>(`${this.apiUrl}/?page=${page}`);
     }
   }
 }

@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {SharedModule} from "./shared/shared.module";
 import {AppRoutingModule} from "./app-routing.module";
-import {FeaturesModule} from "./features/features.module";
 import { StoreModule } from '@ngrx/store';
 import {CommonModule} from "@angular/common";
 import {FilmsEffects} from "./features/films/store/films.effects";
@@ -16,7 +14,7 @@ import {detailsReducer} from "./features/details/store/details.reducer";
 import {DetailsPageEffects} from "./features/details/store/details.effects";
 import {AuthorizationModule} from "./auth/authorization.module";
 import {NavBarModule} from "./shared/components/nav-bar/nav-bar.module";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+
 
 @NgModule({
   declarations: [
@@ -27,8 +25,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AppRoutingModule,
     BrowserAnimationsModule,
     NavBarModule,
-    FeaturesModule,
-    MatSnackBarModule,
     CommonModule,
     AuthorizationModule,
     EffectsModule.forRoot([FilmsEffects, PeopleEffects, DetailsPageEffects]),

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {NavigationEnd, Router} from "@angular/router";
-import {UserCredentials} from "../auth.model";
+import {UserCredentials} from "../../../features/auth/auth.model";
 import {AuthService} from "../../../auth/auth.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
 

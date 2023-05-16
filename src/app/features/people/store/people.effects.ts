@@ -33,8 +33,8 @@ export class PeopleEffects {
       ofType(searchPeople),
       switchMap(({query, page}) =>
         this.peopleService.search(query, page).pipe(
-          map((res: any) => res.result || res.results),
-          // tap((response) => console.log('Server response search people:', response, query, page)),
+          map((res: any) => res.results),
+          // tap((response) => console.log('Server response search people:', response)),
           map((people: People[]) => loadPeopleSuccess({ people })),
           catchError((error) => of(loadPeopleFail({ error: error.message }))),
           // finalize(() => console.log('searchPeople effect completed'))

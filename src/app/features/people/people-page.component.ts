@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {selectPeople, selectPeopleLoaded, selectPeopleLoading} from "./store/people.selectors";
 import {loadPeople, searchPeople} from "./store/people.actions";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PageEvent} from "@angular/material/paginator";
-import {debounceTime, Observable, Subject} from "rxjs";
-import { debounce } from 'rxjs/operators';
+import {debounceTime, Observable, Subject, Subscription} from "rxjs";
 
 
 @Component({
@@ -35,15 +34,15 @@ import { debounce } from 'rxjs/operators';
 })
 
 
-export class PeoplePageComponent implements OnInit{
-
-  private pageChangeSubject = new Subject<PageEvent>();
+export class PeoplePageComponent implements OnInit, OnDestroy{
 
   peoples$
   peopleLoading$: Observable<boolean>
   peopleLoaded$: Observable<boolean>
   searchTerm: string = '';
 
+  private pageChangeSubject = new Subject<PageEvent>();
+  private pageChangeSubscription: Subscription = new Subscription();
   currentPage: number = 1;
 
   constructor(private store: Store, private route: ActivatedRoute, private router: Router) {
@@ -53,14 +52,17 @@ export class PeoplePageComponent implements OnInit{
     this.currentPage = this.route.snapshot.params['page']
   }
 
+  ngOnDestroy(): void {
+        this.pageChangeSubscription.unsubscribe()
+    }
+
   ngOnInit(): void {
     this.store.dispatch(loadPeople({page: this.currentPage}))
     // this.peoples$.subscribe(p => console.log('PEOPLE', p))
-    this.pageChangeSubject.pipe(
-      debounceTime(500)
+    this.pageChangeSubscription = this.pageChangeSubject.pipe(
+        debounceTime(500)
     ).subscribe(event => {
       this.currentPage = event.pageIndex + 1;
-      // console.log("PageEvent", this.currentPage);
       this.store.dispatch(loadPeople({page: this.currentPage}));
     });
   }
@@ -70,7 +72,6 @@ export class PeoplePageComponent implements OnInit{
   }
 
   searchPeople(event: any) {
-    console.log("event", event.target.value)
     this.store.dispatch(searchPeople({ query: event.target.value, page: this.currentPage }));
   }
 }

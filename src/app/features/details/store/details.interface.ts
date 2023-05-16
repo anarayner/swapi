@@ -30,7 +30,6 @@ export const peopleInfo = [
 export const peopleInfoButtons = [
   { title: 'Films', property: 'films', icon: 'tv' },
   { title: 'Vehicles', property: 'vehicles', icon: 'send' },
-  // { title: 'Homeworld', property: 'homeworld', icon: 'blur_circular' },
 ];
 
 export const planetInfo = [

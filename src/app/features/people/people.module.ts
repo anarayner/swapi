@@ -8,8 +8,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 
-
-
 @NgModule({
   declarations: [
     PeoplePageComponent,

@@ -3,12 +3,12 @@
     <img mat-card-image src="https://parade.com/.image/c_fit%2Cw_620/MTkwNTgxMTk3NzM5NzMwMDQ1/star-wars.jpg" alt="img" class="img">
   </div>
   <mat-card-content>
-    <p class="title">{{ data?.properties ? data.properties.title || data.properties.name : data.name }}</p>
+    <p class="title">{{ data?.title ? data.title : data.name }}</p>
   </mat-card-content>
 
   <mat-card-actions class="favorites">
     <button mat-stroked-button color="primary" class="bt" (click)="onDetailsClick()">Details</button>
-    <button mat-stroked-button color="primary" class="bt2" (click)="getInfo()">Full Information</button>
+    <button mat-stroked-button color="primary" class="bt2" [routerLink]="['/info', category, id]">Full Information</button>
     <button *ngIf="(isLoggedIn$ | async)" mat-raised-button color="primary" class="bt2">Add to Favorites</button>
   </mat-card-actions>
 </mat-card>

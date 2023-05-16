@@ -2,7 +2,7 @@
   <span>STAR WARS | RAYNER</span>
   <div class="spacer"></div>
   <div class="button-container" >
-      <a mat-button routerLink="/films" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Films</a>
+      <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Films</a>
   </div>
   <div class="button-container">
       <a mat-button routerLink="/people" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">People</a>
@@ -14,7 +14,7 @@
   </div>
   <div>
     <button *ngIf="(isLoggedIn$ | async)" mat-stroked-button color="primary" type="button"
-            class="submit-button" routerLink="/films" (click)="onSignOut()">Log out</button>
+            class="submit-button" routerLink="/" (click)="onSignOut()">Log out</button>
   </div>
 
   <div *ngIf="(isLoggedIn$ | async)" class="logo-container">

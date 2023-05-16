@@ -16,7 +16,9 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {AuthorizationModule} from "../auth/authorization.module";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {AuthFormComponent} from "./components/auth-form/auth-form.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     ItalicPipe,
     IconButtonComponent,
     InfoComponent,
+    AuthFormComponent,
   ],
   imports: [
     CommonModule,
@@ -42,16 +45,20 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
+    MatSnackBarModule,
   ],
   exports: [
     CardListComponent,
-    CardComponent,
+    // CardComponent,
     ItalicPipe,
     HoverScaleDirective,
     IconButtonComponent,
     InfoComponent,
-    FocusDirective
-  ], providers: [
+    FocusDirective,
+    AuthFormComponent
+  ],
+  providers: [
     MatDialog,
   ]
 })

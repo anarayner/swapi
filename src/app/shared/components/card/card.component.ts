@@ -13,6 +13,9 @@ export class CardComponent {
   @Input() data!: any;
   @Input() index!: number;
 
+  id: string | undefined
+  category: string | undefined
+
   isLoggedIn$ = this.authService.isLoggedIn$;
 
   @ViewChild('cardTemplate')
@@ -26,19 +29,13 @@ export class CardComponent {
 
   ngOnInit(): void {
     //console.log('DATA CARD', this.data)
+    const path = this.data.url.split('/api/')[1].split('/')
+    this.category = path[0]
+    this.id = path[1]
   }
 
   getInfo(){
-    let path
-    if(this.data.properties){
-      path = this.data.properties.url.split('/api/')[1].split('/')
-    } else {
-      path = this.data.url.split('/api/')[1].split('/')
-    }
-    console.log(path)
-    const category = path[0], id = path[1]
-    this.router.navigate(['/info', category, id]);
-
+    this.router.navigate(['/info', this.category, this.id]);
   }
 
   onDetailsClick(){
