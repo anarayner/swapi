@@ -1,0 +1,33 @@
+.favorites-container{
+  width: calc(100vw - 300px);
+  display: flex;
+  justify-content: center;
+}
+
+.favorites-card-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1200px;
+}
+
+.favorites-card{
+  width: 220px;
+  height: 200px;
+  margin: 10px;
+  cursor: pointer;
+
+}
+
+.favorites-card-img{
+  height: 170px;
+  object-fit: cover;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 415px) {
+  .favorites-card-list{
+    display: flex;
+    justify-content: center;
+  }
+}

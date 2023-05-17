@@ -1,5 +1,10 @@
 export interface Profile {
   id: string;
   username: number;
-  favorites: string[];
+  favorites: favoriteCard[];
+}
+
+export interface favoriteCard {
+  title: string;
+  apiLink: string
 }

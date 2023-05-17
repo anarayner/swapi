@@ -37,15 +37,12 @@ export class CardComponent {
 
   addToFavorite(){
     const title = this.data.title || this.data.name
-    const id_ls = localStorage.getItem('id') as string
-    const id = id_ls.slice(1, -1)
+    const id = localStorage.getItem('id')?.slice(1, -1) || ''
     this.authService.addFavorite(id, title, this.data.url).subscribe({
       next: (data: any)=>{
-        console.log('FAVOR', data)
         this.snackBar.open('Added to favorites', 'Close', { duration: 5000 });
       },
       error: (error) => {
-        console.log("ERROR", error)
         this.snackBar.open(error.error.message, 'Close', { duration: 5000 });
       }
     })

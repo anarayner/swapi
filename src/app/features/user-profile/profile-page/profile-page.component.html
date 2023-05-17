@@ -1,4 +1,15 @@
 <div class="page-container">
   <mat-spinner *ngIf="isLoading" class="page-spinner"></mat-spinner>
   <h1 *ngIf="!isLoading">Welcome, {{userData.username}}</h1>
+
+  <div *ngIf="!isLoading" class="favorites-container">
+    <div class="favorites-card-list">
+        <div *ngFor="let card of userData.favorites, let i = index" >
+          <mat-card class="favorites-card" appHoverScale="5" (click)="getDetails(i)" >
+            <img mat-card-image src="https://parade.com/.image/c_fit%2Cw_620/MTkwNTgxMTk3NzM5NzMwMDQ1/star-wars.jpg" alt="img" class="favorites-card-img">
+            <mat-card-content >{{card?.title}}</mat-card-content>
+          </mat-card>
+        </div>
+    </div>
+  </div>
 </div>
