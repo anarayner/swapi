@@ -10,13 +10,11 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
-
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token')?.slice(1, -1) || ''
-    if(token ){
+    if(token){
       request = request.clone({
-        setHeaders:{
+        setHeaders: {
           Authorization: `Bearer ${token}`
         }
       })

@@ -12,22 +12,24 @@ import {debounceTime, Observable, Subject, Subscription} from "rxjs";
   template: `
     <div class="page-container">
       <mat-spinner *ngIf="peopleLoading$ | async" class="page-spinner"></mat-spinner>
-      <div class="paginator-container">
-        <mat-form-field appearance="fill">
-          <mat-label>Search by name</mat-label>
-          <input matInput type="search" [(ngModel)]="searchTerm" (input)="searchPeople($event)">
-        </mat-form-field>
+      <ng-container *ngIf="peopleLoaded$ | async">
+        <div class="paginator-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Search by name</mat-label>
+            <input matInput type="search" [(ngModel)]="searchTerm" (input)="searchPeople($event)">
+          </mat-form-field>
 
-        <mat-paginator [length]="83"
-                       [pageSize]="10"
-                       [hidePageSize]="true"
-                       aria-label="Select page"
-                       class="paginator"
-                       (page)="onPageChange($event)"
-        >
-        </mat-paginator>
-      </div>
-      <app-card-list *ngIf="peopleLoaded$ | async" [cards]="peoples$ | async" class="list"></app-card-list>
+          <mat-paginator [length]="83"
+                         [pageSize]="10"
+                         [hidePageSize]="true"
+                         aria-label="Select page"
+                         class="paginator"
+                         (page)="onPageChange($event)"
+          >
+          </mat-paginator>
+        </div>
+        <app-card-list [cards]="peoples$ | async" class="list"></app-card-list>
+      </ng-container>
     </div>
   `,
   styleUrls: ['../page.scss']
