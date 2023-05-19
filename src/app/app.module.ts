@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppRoutingModule} from "./app-routing.module";
-import { StoreModule } from '@ngrx/store';
+import {StoreModule } from '@ngrx/store';
 import {CommonModule} from "@angular/common";
 import {FilmsEffects} from "./features/films/store/films.effects";
 import {EffectsModule} from "@ngrx/effects";

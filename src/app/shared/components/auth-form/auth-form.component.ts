@@ -51,7 +51,7 @@ export class AuthFormComponent{
     this.authService.logIn(user.username, user.password).subscribe({
       next: (data)=>{
         // console.log(data)
-        this.router.navigate([`/films`]);
+        this.router.navigate([`/`]);
       },
       error: (error) => {
         // console.log("ERROR", error)
